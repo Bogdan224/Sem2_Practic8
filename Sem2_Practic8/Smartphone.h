@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
-#include<iostream>
+#include <iostream>
+#include "Price.h"
+#include "Memory.h"
 using namespace std;
 enum class Manufacturer {
     APPLE, SAMSUNG, XIAOMI, HTC, TECNO, UNDEFINED
@@ -16,24 +18,29 @@ enum class CPU {
 };
 class Smartphone {
 private:
-    string model;  Manufacturer manufacturer;  Color color;
-    float displaySize;  int ram, storage;
-    CPU cpu;  OS os;  double price;
+    string model;  
+    Manufacturer manufacturer;  
+    Color color;
+    float displaySize;  
+    Memory ram, storage;
+    CPU cpu;  
+    OS os;  
+    Price price;
 public:
     Smartphone();
-    Smartphone(string model, double price, Manufacturer manufacturer,
-        Color color, float displaySize, int ram,
-        int storage, CPU cpu, OS os);
+    Smartphone(string model, Price price, Manufacturer manufacturer,
+        Color color, float displaySize, Memory ram,
+        Memory storage, CPU cpu, OS os);
     string getModel() const;
     Manufacturer getManufacturer() const;
     Color getColor() const;
     float getDisplay() const;
-    int getRAM() const;
-    int getStorage() const;
+    Memory getRAM() const;
+    Memory getStorage() const;
     CPU getCPU() const;
     OS getOS() const;
-    double getPrice() const;
-    void setPrice(double price);
+    Price getPrice() const;
+    void setPrice(Price price);
     void Print();
 };
 

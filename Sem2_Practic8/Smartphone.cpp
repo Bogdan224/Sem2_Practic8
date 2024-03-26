@@ -7,16 +7,18 @@ Smartphone::Smartphone() {
 	this-> storage = 0;
 	this-> cpu = CPU::UNDEFINED;  this-> os = OS::UNDEFINED;
 }
-Smartphone::Smartphone(string model, double price, Manufacturer
-	manufacturer,
-	Color color, float displaySize, int ram,
-	int storage, CPU cpu, OS os) {
-	this-> model = model;  this-> price = price;
-	this-> manufacturer = manufacturer;
-	this-> color = color;
-	this-> displaySize = displaySize;  this-> ram = ram;
-	this-> storage = storage;
-	this-> cpu = cpu;  this-> os = os;
+Smartphone::Smartphone(string model, Price price, Manufacturer manufacturer,
+	Color color, float displaySize, Memory ram,
+	Memory storage, CPU cpu, OS os) {
+	this->model = model;  
+	this->price = price;
+	this->manufacturer = manufacturer;
+	this->color = color;
+	this->displaySize = displaySize;  
+	this->ram = ram;
+	this->storage = storage;
+	this->cpu = cpu;  
+	this->os = os;
 }
 string Smartphone::getModel() const {
 	return model;
@@ -30,10 +32,10 @@ float Smartphone::getDisplay() const {
 Color Smartphone::getColor() const {
 	return color;
 }
-int Smartphone::getRAM() const {
+Memory Smartphone::getRAM() const {
 	return ram;
 }
-int Smartphone::getStorage() const {
+Memory Smartphone::getStorage() const {
 	return storage;
 }
 CPU Smartphone::getCPU() const {
@@ -42,10 +44,10 @@ CPU Smartphone::getCPU() const {
 OS Smartphone::getOS() const {
 	return os;
 }
-double Smartphone::getPrice() const {
+Price Smartphone::getPrice() const {
 	return price;
 }
-void Smartphone::setPrice(double price) {
+void Smartphone::setPrice(Price price) {
 	this->price = price;
 }
 
@@ -155,11 +157,11 @@ string toString(CPU cpu) {
 void Smartphone::Print() {
 	cout << toString(manufacturer);
 	cout << model << endl;
-	cout << "Price: " << price << endl;
+	cout << "Price: " << price.getValue()<< " " << toString(price.getCurrency()) << endl;
 	cout << toString(color);
 	cout << "Display: " << displaySize << endl;
 	cout << toString(os);
-	cout << ram << "Gb RAM, " << storage
-		<< " GB storage" << endl;
+	cout << ram.getValue() << " " << toString(ram.getUnit()) << " RAM, " << storage.getValue() << " "
+		<< toString(ram.getUnit()) << " storage" << endl;
 	cout << toString(cpu);
 }

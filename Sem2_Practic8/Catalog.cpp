@@ -1,9 +1,9 @@
 #include "Catalog.h"
 #include <algorithm>
-void Catalog::addSmartphone(string model, double price, Manufacturer
+void Catalog::addSmartphone(string model, Price price, Manufacturer
     manufacturer,
-    Color color, float displaySize, int ram,
-    int storage, CPU cpu, OS os) {
+    Color color, float displaySize, Memory ram,
+    Memory storage, CPU cpu, OS os) {
     smartphones.push_back(Smartphone{ model, price, manufacturer,
       color, displaySize, ram,
       storage, cpu, os });
@@ -33,10 +33,10 @@ vector<Smartphone> Catalog::search(const Smartphone& searchSmartphone) {
         if (color != Color::UNDEFINED && color != s.getColor()) continue;
         float displaySize = searchSmartphone.getDisplay();
         if (displaySize > 0 && displaySize != s.getDisplay()) continue;
-        int ram = searchSmartphone.getRAM();
-        if (ram > 0 && ram != s.getRAM()) continue;
-        int storage = searchSmartphone.getStorage();
-        if (storage > 0 && storage != s.getStorage()) continue;
+        Memory ram = searchSmartphone.getRAM();
+        if (ram.getValue() > 0 && ram.getValue() != s.getRAM().getValue()) continue;
+        Memory storage = searchSmartphone.getStorage();
+        if (storage.getValue() > 0 && storage.getValue() != s.getStorage().getValue()) continue;
         CPU cpu = searchSmartphone.getCPU();
         if (cpu != CPU::UNDEFINED && cpu != s.getCPU()) continue;
         OS os = searchSmartphone.getOS();

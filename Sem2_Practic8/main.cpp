@@ -4,12 +4,12 @@
 using namespace std;
 Catalog InitializeCatalog() {
     Catalog catalog;
-    catalog.addSmartphone("iPhone 12 Pro", 100, Manufacturer::APPLE,
-        Color::WHITE, 6, 3, 64, CPU::APPLE, OS::IOS);
-    catalog.addSmartphone("iPhone 12 Pro", 102, Manufacturer::APPLE,
-        Color::WHITE, 6, 3, 128, CPU::APPLE, OS::IOS);
-    catalog.addSmartphone("iPhone 12 Pro", 98, Manufacturer::APPLE,
-        Color::BLUE, 6, 3, 64, CPU::APPLE, OS::IOS);
+    catalog.addSmartphone("iPhone 12 Pro", Price(123.214), Manufacturer::APPLE,
+        Color::WHITE, 6, Memory(3,Unit::GB), Memory(64, Unit::GB), CPU::APPLE, OS::IOS);
+    catalog.addSmartphone("iPhone 12 Pro", Price(102), Manufacturer::APPLE,
+        Color::WHITE, 6, Memory(3, Unit::GB), Memory(128, Unit::GB), CPU::APPLE, OS::IOS);
+    catalog.addSmartphone("iPhone 12 Pro", Price(98), Manufacturer::APPLE,
+        Color::BLUE, 6, Memory(3, Unit::GB), Memory(64, Unit::GB), CPU::APPLE, OS::IOS);
     return catalog;
 }
 int main(int argc, char* argv[]) {
@@ -24,5 +24,6 @@ int main(int argc, char* argv[]) {
         }
     }
     else cout << "Sorry, we have nothing for you.";
+
     return 0;
 }
