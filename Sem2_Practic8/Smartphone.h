@@ -1,17 +1,18 @@
 #pragma once
 #include <string>
+#include<iostream>
 using namespace std;
 enum class Manufacturer {
-    APPLE, SAMSUNG, XIAOMI, HTC, UNDEFINED
+    APPLE, SAMSUNG, XIAOMI, HTC, TECNO, UNDEFINED
 };
 enum class Color {
-    WHITE, GRAY, BLACK, BLUE, RED, GOLD, UNDEFINED
+    WHITE, GRAY, BLACK, BLUE, RED, GOLD, SILVER, UNDEFINED
 };
 enum class OS {
-    ANDROID, IOS, UNDEFINED
+    ANDROID, IOS, WINDOWS, UNDEFINED
 };
 enum class CPU {
-    SNAPDRAGON, APPLE, UNDEFINED
+    SNAPDRAGON, APPLE, DIMENSITY, UNDEFINED
 };
 class Smartphone {
 private:
@@ -33,4 +34,10 @@ public:
     OS getOS() const;
     double getPrice() const;
     void setPrice(double price);
+    void Print();
 };
+
+string toString(Manufacturer manufacturer);
+string toString(Color color);
+string toString(OS os);
+string toString(CPU cpu);

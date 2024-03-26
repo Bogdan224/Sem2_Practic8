@@ -20,11 +20,7 @@ int main(int argc, char* argv[]) {
     if (!results.empty()) {
         cout << "You might like this:" << endl;
         for (Smartphone s : results) {
-            cout << s.getModel() << endl;
-            cout << "Price: " << s.getPrice() << endl;
-            cout << "Display: " << s.getDisplay() << endl;
-            cout << s.getRAM() << "Gb RAM, " << s.getStorage() << " GB storage"
-                << endl << endl;
+            s.Print();
         }
     }
     else cout << "Sorry, we have nothing for you.";
