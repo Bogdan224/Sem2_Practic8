@@ -1,14 +1,14 @@
 #include "Smartphone.h"
 Smartphone::Smartphone() {
-	this-> model = "";  this-> price = 0;
+	this->model = "";  this->price = Price();
 	this-> manufacturer = Manufacturer::UNDEFINED;
 	this-> color = Color::UNDEFINED;
-	this-> displaySize = 0;  this-> ram = 0;
-	this-> storage = 0;
+	this->displaySize = Display();  this->ram = Memory();
+	this-> storage = Memory();
 	this-> cpu = CPU::UNDEFINED;  this-> os = OS::UNDEFINED;
 }
 Smartphone::Smartphone(string model, Price price, Manufacturer manufacturer,
-	Color color, float displaySize, Memory ram,
+	Color color, Display displaySize, Memory ram,
 	Memory storage, CPU cpu, OS os) {
 	this->model = model;  
 	this->price = price;
@@ -26,7 +26,7 @@ string Smartphone::getModel() const {
 Manufacturer Smartphone::getManufacturer() const {
 	return manufacturer;
 }
-float Smartphone::getDisplay() const {
+Display Smartphone::getDisplay() const {
 	return displaySize;
 }
 Color Smartphone::getColor() const {
@@ -159,7 +159,7 @@ void Smartphone::Print() {
 	cout << model << endl;
 	cout << "Price: " << price.getValue()<< " " << toString(price.getCurrency()) << endl;
 	cout << toString(color);
-	cout << "Display: " << displaySize << endl;
+	cout << "Display's diagonal: " << displaySize.getDiagonal() << endl;
 	cout << toString(os);
 	cout << ram.getValue() << " " << toString(ram.getUnit()) << " RAM, " << storage.getValue() << " "
 		<< toString(ram.getUnit()) << " storage" << endl;

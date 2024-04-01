@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Price.h"
 #include "Memory.h"
+#include "Display.h"
 using namespace std;
 enum class Manufacturer {
     APPLE, SAMSUNG, XIAOMI, HTC, TECNO, UNDEFINED
@@ -21,7 +22,7 @@ private:
     string model;  
     Manufacturer manufacturer;  
     Color color;
-    float displaySize;  
+    Display displaySize;  
     Memory ram, storage;
     CPU cpu;  
     OS os;  
@@ -29,12 +30,12 @@ private:
 public:
     Smartphone();
     Smartphone(string model, Price price, Manufacturer manufacturer,
-        Color color, float displaySize, Memory ram,
+        Color color, Display displaySize, Memory ram,
         Memory storage, CPU cpu, OS os);
     string getModel() const;
     Manufacturer getManufacturer() const;
     Color getColor() const;
-    float getDisplay() const;
+    Display getDisplay() const;
     Memory getRAM() const;
     Memory getStorage() const;
     CPU getCPU() const;

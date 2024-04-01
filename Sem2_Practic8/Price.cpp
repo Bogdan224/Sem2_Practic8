@@ -19,7 +19,7 @@ Currency Price::getCurrency() const {
 void Price::setValue(double value) {
 	if (value < 0 || value > DBL_MAX)
 		value = 0;
-	this->value = value;
+	this->value = value;	
 }
 float Price::getIndex(Currency currency) const {
 	float index;
